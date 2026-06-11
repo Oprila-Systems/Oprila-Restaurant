@@ -1,23 +1,32 @@
-import Sidebar from "./sidebar";
+export default function Sidebar() {
+  const menuItems = [
+    "Overview",
+    "Bookings",
+    "Menu",
+    "Call History",
+    "Floor Plan",
+  ];
 
-export default function CallHistoryPage() {
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="w-64 bg-[#F7F3EF] border-r border-gray-200 p-6">
+      <h1 className="text-2xl font-bold text-[#8B4513] mb-10">
+        Maitre D' Pro
+      </h1>
 
-      {/* Sidebar */}
-      <Sidebar />
-
-      {/* Main Content */}
-      <div className="flex-1 p-6">
-        <h1 className="text-3xl font-bold mb-6">
-          Call History
-        </h1>
-
-        <div className="bg-white rounded-lg shadow p-6">
-          Call History Page Content
-        </div>
+      <div className="space-y-3">
+        {menuItems.map((item) => (
+          <div
+            key={item}
+            className={`px-4 py-3 rounded-xl cursor-pointer transition ${
+              item === "Call History"
+                ? "bg-[#A85B2B] text-white"
+                : "hover:bg-white text-gray-700"
+            }`}
+          >
+            {item}
+          </div>
+        ))}
       </div>
-
     </div>
   );
 }

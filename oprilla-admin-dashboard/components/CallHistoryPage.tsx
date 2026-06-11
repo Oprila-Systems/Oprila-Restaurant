@@ -1,19 +1,24 @@
-import Sidebar from "./Sidebar";
-import RecentActivityPanel from "./Recent activity panel";
-import CallDetailsHeader from "./Call Details";
-import ConversationSection from "./Conv Section";
+import Sidebar from "./sidebar";
+
+import RecentActivityPanel from "./Recentactivitypanel";
+import CallDetailsHeader from "./CallDetails";
+import ConversationSection from "./Convsection";
 
 export default function CallHistoryPage() {
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      <Sidebar />
+    <div className="flex min-h-screen bg-[#FAF8F5]">
+      
+      <Sidebar/>
+      
 
+      {/* Recent Activity */}
       <RecentActivityPanel />
 
-      <div className="flex-1">
+      {/* Main Content */}
+      <div className="max-w-5xl mx-auto">
         <CallDetailsHeader />
 
-        <div className="p-6">
+        <div className="mt-6">
           <ConversationSection />
         </div>
       </div>

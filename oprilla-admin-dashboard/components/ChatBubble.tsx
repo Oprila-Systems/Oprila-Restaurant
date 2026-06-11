@@ -10,22 +10,18 @@ export default function ChatBubble({
   const isAI = sender === "AI Assistant";
 
   return (
-    <div
-      className={`flex ${
-        isAI ? "justify-start" : "justify-end"
-      }`}
-    >
+    <div className={`flex ${isAI ? "justify-start" : "justify-end"}`}>
       <div
-        className={`max-w-md p-3 rounded-xl shadow-sm border ${
+        className={`max-w-[420px] rounded-xl p-4 ${
           isAI
-            ? "bg-gray-100 border-gray-200"
-            : "bg-[#A85B2B] border-[#A85B2B]"
+            ? "bg-[#F3F0EC]"
+            : "bg-[#A85B2B]"
         }`}
       >
         <p
-          className={`font-bold mb-2 ${
+          className={`text-[11px] font-bold uppercase mb-2 ${
             isAI
-              ? "text-gray-700"
+              ? "text-[#1F2937]"
               : "text-white"
           }`}
         >
@@ -33,9 +29,9 @@ export default function ChatBubble({
         </p>
 
         <p
-          className={`leading-relaxed ${
+          className={`text-sm leading-6 ${
             isAI
-              ? "text-gray-700"
+              ? "text-[#374151]"
               : "text-white"
           }`}
         >

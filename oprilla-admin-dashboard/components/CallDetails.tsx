@@ -8,10 +8,10 @@ import { LuTimer } from "react-icons/lu";
 
 export default function CallDetails() {
   return (
-    <div className="bg-white rounded-2xl border border-[#E7E1D9] p-6 shadow-sm">
+    <div className="bg-white rounded-[28px] border border-[#E7E1D9] p-8 shadow-sm">
 
-      {/* Top Header */}
-      <div className="flex justify-end items-center gap-4 mb-6">
+      {/* Header */}
+      <div className="flex justify-end items-center gap-4 mb-8">
 
         <FiBell
           size={18}
@@ -24,112 +24,152 @@ export default function CallDetails() {
         />
 
         <div className="text-right">
-          <p className="text-[12px] font-semibold text-[#111827]">
+          <p className="text-sm font-semibold text-[#111827]">
             Julian Rossi
           </p>
 
-          <p className="text-[10px] uppercase text-[#9CA3AF]">
+          <p className="text-[11px] uppercase tracking-wide text-[#9CA3AF]">
             Floor Manager
           </p>
         </div>
 
-        <div className="w-9 h-9 rounded-full bg-[#A85B2B] text-white flex items-center justify-center font-semibold">
+        <div className="w-10 h-10 rounded-full bg-[#A85B2B] text-white flex items-center justify-center font-semibold">
           J
         </div>
+
       </div>
 
       {/* Main Section */}
-      <div className="flex justify-between">
+      <div className="flex flex-col xl:flex-row items-center gap-14">
 
-        {/* Left */}
-        <div>
+        {/* LEFT */}
+        <div className="flex-1 max-w-[700px]">
 
-          <h1 className="text-[58px] font-black leading-[52px] text-[#111827]">
+          <h1
+            className="
+              text-[48px]
+              md:text-[64px]
+              lg:text-[78px]
+              font-black
+              leading-[0.9]
+              tracking-tight
+              text-[#081228]
+            "
+          >
             +1 (555)
             <br />
             012-4492
           </h1>
 
-          <div className="flex gap-8 mt-6">
+          {/* Meta Data */}
+          <div className="flex flex-wrap items-center gap-8 mt-8">
 
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <FiCalendar
-                size={14}
-                className="text-[#8B8B8B] mt-1"
+                size={16}
+                className="text-[#8B8B8B]"
               />
 
-              <div>
-                <p className="text-xs text-[#7C7C7C]">
-                  Oct 24,
-                </p>
-                <p className="text-xs text-[#7C7C7C]">
-                  2023
-                </p>
-              </div>
+              <span className="text-sm text-[#7C7C7C]">
+                Oct 24, 2023
+              </span>
             </div>
 
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <FiClock
-                size={14}
-                className="text-[#8B8B8B] mt-1"
+                size={16}
+                className="text-[#8B8B8B]"
               />
 
-              <div>
-                <p className="text-xs text-[#7C7C7C]">
-                  12:45
-                </p>
-                <p className="text-xs text-[#7C7C7C]">
-                  PM
-                </p>
-              </div>
+              <span className="text-sm text-[#7C7C7C]">
+                12:45 PM
+              </span>
             </div>
 
-            <div className="flex items-start gap-2">
+            <div className="flex items-center gap-2">
               <LuTimer
-                size={14}
-                className="text-[#8B8B8B] mt-1"
+                size={16}
+                className="text-[#8B8B8B]"
               />
 
-              <div>
-                <p className="text-xs text-[#7C7C7C]">
-                  Duration:
-                </p>
-                <p className="text-xs text-[#7C7C7C]">
-                  4m 32s
-                </p>
-              </div>
+              <span className="text-sm text-[#7C7C7C]">
+                Duration • 4m 32s
+              </span>
             </div>
 
           </div>
+
         </div>
 
-        {/* Right */}
-       <div className="flex flex-col justify-center items-center gap-5">
+        {/* RIGHT */}
+        <div className="flex flex-col items-center gap-6 min-w-[260px]">
 
           {/* Badge */}
-          <div className="w-20 h-20 rounded-full bg-[#F2BE95] flex items-center justify-center shadow-sm">
-          <span className="text-[10px] font-extrabold text-center uppercase text-[#8D4A22] leading-tight tracking-wide">
-            TABLE
-          <br />
-             BOOKED
-           <br />
-              FOR 4
-           </span>
-           </div>
-          {/* Buttons */}
-          <div className="flex justify-center gap-3 w-full">
+          <div className="w-24 h-24 rounded-full bg-[#F2BE95] flex items-center justify-center shadow-sm">
 
-            <button className="border border-[#D1D5DB] bg-white px-6 py-3 rounded-xl font-black text-xl text-[#111827]">
-              Export Transcript
-             </button>
-               
-             <button className="w-[120px] h-[58px] bg-black text-white rounded-xl font-semibold">
-              Flag
-            <br />
-              for Review
+            <span
+              className="
+                text-[10px]
+                font-extrabold
+                text-center
+                uppercase
+                tracking-wider
+                leading-4
+                text-[#8D4A22]
+              "
+            >
+              TABLE
+              <br />
+              BOOKED
+              <br />
+              FOR 4
+            </span>
+
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-row gap-3">
+
+            <button
+              className="
+                w-[135px]
+                h-[58px]
+                border
+                border-[#D6D6D6]
+                bg-white
+                rounded-xl
+                font-semibold
+                text-[15px]
+                text-[#111827]
+                hover:bg-[#FAFAFA]
+                transition
+              "
+            >
+              Export
+              <br />
+              Transcript
             </button>
-           </div>
-           </div>
+
+            <button
+              className="
+                w-[135px]
+                h-[58px]
+                bg-black
+                text-white
+                rounded-xl
+                font-semibold
+                text-[15px]
+                hover:opacity-90
+                transition
+              "
+            >
+              Flag for Review
+            </button>
+
+          </div>
+
+        </div>
+
       </div>
     </div>
   );

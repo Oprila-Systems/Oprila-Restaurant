@@ -1,8 +1,10 @@
-import AIActivityCard from "@/app/dashboard/components/AIActivityCard";
+import AIActivityCard from "./AIActivityCard";
+import { AI_ACTIVITY_DATA } from "../constants/dashboardConstants";
 
 export default function ActivityPanel() {
   return (
     <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
+      {/* Header */}
       <div className="flex items-start justify-between mb-8">
         <h2 className="text-[18px] font-serif font-semibold text-[#2B2B2B]">
           AI Activity
@@ -14,39 +16,19 @@ export default function ActivityPanel() {
       </div>
 
       <div className="space-y-8">
-
-        <AIActivityCard
-          title="Booking Confirmed"
-          status="COMPLETED"
-          statusBg="bg-[#E7F0E3]"
-          statusText="text-[#56724F]"
-          dotColor="bg-[#0E1E16]"
-          description='"Table for 4 at 8 PM. Guest requested window seat for anniversary."'
-          footer="Assistant #4 • 2m ago"
-          italic
-        />
-
-        <AIActivityCard
-          title="Inbound Inquiry"
-          status="IN PROGRESS"
-          statusBg="bg-[#F8DDD7]"
-          statusText="text-[#8B5A4A]"
-          dotColor="bg-[#B96A45]"
-          description="Clarifying dietary restrictions for a private event inquiry on Nov 12th."
-          footer="Assistant #1 • Live"
-        />
-
-        <AIActivityCard
-          title="Rescheduling"
-          status="COMPLETED"
-          statusBg="bg-[#E7F0E3]"
-          statusText="text-[#56724F]"
-          dotColor="bg-[#0E1E16]"
-          description='"Moved Henderson party (6) from 7:30 to 8:15 PM."'
-          footer="Assistant #2 • 15m ago"
-          italic
-        />
-
+        {AI_ACTIVITY_DATA.map((activity, index) => (
+          <AIActivityCard
+            key={index}
+            title={activity.title}
+            status={activity.status}
+            statusBg={activity.statusBg}
+            statusText={activity.statusText}
+            dotColor={activity.dotColor}
+            description={activity.description}
+            footer={activity.footer}
+            italic={activity.italic}
+          />
+        ))}
       </div>
     </div>
   );

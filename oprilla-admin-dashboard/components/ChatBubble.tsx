@@ -12,7 +12,7 @@ export default function ChatBubble({
   return (
     <div className={`flex ${isAI ? "justify-start" : "justify-end"}`}>
       <div
-        className={`max-w-[420px] rounded-xl p-4 ${
+        className={`max-w-[380px] rounded-xl px-4 py-3 ${
           isAI
             ? "bg-[#F3F0EC]"
             : "bg-[#A85B2B]"

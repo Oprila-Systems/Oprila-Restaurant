@@ -1,3 +1,5 @@
+import InfoItem from "./InfoItem";
+import ActionButton from "./ActionButtons";
 import {
   FiBell,
   FiMoon,
@@ -64,38 +66,35 @@ export default function CallDetails() {
           {/* Meta Data */}
           <div className="flex flex-wrap items-center gap-8 mt-8">
 
-            <div className="flex items-center gap-2">
-              <FiCalendar
-                size={16}
-                className="text-[#8B8B8B]"
-              />
+            <InfoItem
+              icon={
+                <FiCalendar
+                  size={16}
+                  className="text-[#8B8B8B]"
+                />
+              }
+              text="Oct 24, 2023"
+            />
 
-              <span className="text-sm text-[#7C7C7C]">
-                Oct 24, 2023
-              </span>
-            </div>
+            <InfoItem
+              icon={
+                <FiClock
+                  size={16}
+                  className="text-[#8B8B8B]"
+                />
+              }
+              text="12:45 PM"
+            />
 
-            <div className="flex items-center gap-2">
-              <FiClock
-                size={16}
-                className="text-[#8B8B8B]"
-              />
-
-              <span className="text-sm text-[#7C7C7C]">
-                12:45 PM
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <LuTimer
-                size={16}
-                className="text-[#8B8B8B]"
-              />
-
-              <span className="text-sm text-[#7C7C7C]">
-                Duration • 4m 32s
-              </span>
-            </div>
+            <InfoItem
+              icon={
+                <LuTimer
+                  size={16}
+                  className="text-[#8B8B8B]"
+                />
+              }
+              text="Duration • 4m 32s"
+            />
 
           </div>
 
@@ -128,49 +127,22 @@ export default function CallDetails() {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-row gap-3">
+      <div className="flex flex-row gap-3">
+          <ActionButton
+            label="Export Transcript"
+          />
 
-            <button
-              className="
-                w-[135px]
-                h-[58px]
-                border
-                border-[#D6D6D6]
-                bg-white
-                rounded-xl
-                font-semibold
-                text-[15px]
-                text-[#111827]
-                hover:bg-[#FAFAFA]
-                transition
-              "
-            >
-              Export
-              <br />
-              Transcript
-            </button>
+         <ActionButton
+           label="Flag for Review"
+           variant="primary"
+          />
 
-            <button
-              className="
-                w-[135px]
-                h-[58px]
-                bg-black
-                text-white
-                rounded-xl
-                font-semibold
-                text-[15px]
-                hover:opacity-90
-                transition
-              "
-            >
-              Flag for Review
-            </button>
-
+          </div>
           </div>
 
         </div>
 
       </div>
-    </div>
+    
   );
 }

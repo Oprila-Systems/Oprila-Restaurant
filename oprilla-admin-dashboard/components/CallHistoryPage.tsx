@@ -1,4 +1,4 @@
-import Sidebar from "./sidebar";
+//import Sidebar from "../components/Sidebar";
 import RecentActivityPanel from "./Recentactivitypanel";
 import CallDetails from "./CallDetails";
 import ConversationSection from "./Convsection";
@@ -8,7 +8,7 @@ export default function CallHistoryPage() {
     <div className="flex min-h-screen bg-[#F7F4EF]">
 
       {/* Sidebar */}
-      <Sidebar />
+      
 
       {/* Recent Activity */}
       <RecentActivityPanel />

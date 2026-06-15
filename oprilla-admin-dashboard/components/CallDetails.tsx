@@ -9,12 +9,51 @@ import {
 import { LuTimer } from "react-icons/lu";
 
 export default function CallDetails() {
+  const infoItems = [
+    {
+      icon: (
+        <FiCalendar
+          size={16}
+          className="text-[#8B8B8B]"
+        />
+      ),
+      text: "Oct 24, 2023",
+    },
+    {
+      icon: (
+        <FiClock
+          size={16}
+          className="text-[#8B8B8B]"
+        />
+      ),
+      text: "12:45 PM",
+    },
+    {
+      icon: (
+        <LuTimer
+          size={16}
+          className="text-[#8B8B8B]"
+        />
+      ),
+      text: "Duration • 4m 32s",
+    },
+  ];
+
+  const buttons = [
+    {
+      label: "Export Transcript",
+      variant: "secondary" as const,
+    },
+    {
+      label: "Flag for Review",
+      variant: "primary" as const,
+    },
+  ];
+
   return (
     <div className="bg-white rounded-[28px] border border-[#E7E1D9] p-8 shadow-sm">
-
       {/* Header */}
       <div className="flex justify-end items-center gap-4 mb-8">
-
         <FiBell
           size={18}
           className="text-[#6B7280] cursor-pointer"
@@ -38,15 +77,12 @@ export default function CallDetails() {
         <div className="w-10 h-10 rounded-full bg-[#A85B2B] text-white flex items-center justify-center font-semibold">
           J
         </div>
-
       </div>
 
       {/* Main Section */}
       <div className="flex flex-col xl:flex-row items-center gap-14">
-
         {/* LEFT */}
         <div className="flex-1 max-w-[700px]">
-
           <h1
             className="
               text-[48px]
@@ -65,47 +101,20 @@ export default function CallDetails() {
 
           {/* Meta Data */}
           <div className="flex flex-wrap items-center gap-8 mt-8">
-
-            <InfoItem
-              icon={
-                <FiCalendar
-                  size={16}
-                  className="text-[#8B8B8B]"
-                />
-              }
-              text="Oct 24, 2023"
-            />
-
-            <InfoItem
-              icon={
-                <FiClock
-                  size={16}
-                  className="text-[#8B8B8B]"
-                />
-              }
-              text="12:45 PM"
-            />
-
-            <InfoItem
-              icon={
-                <LuTimer
-                  size={16}
-                  className="text-[#8B8B8B]"
-                />
-              }
-              text="Duration • 4m 32s"
-            />
-
+            {infoItems.map((item, index) => (
+              <InfoItem
+                key={index}
+                icon={item.icon}
+                text={item.text}
+              />
+            ))}
           </div>
-
         </div>
 
         {/* RIGHT */}
         <div className="flex flex-col items-center gap-6 min-w-[260px]">
-
           {/* Badge */}
           <div className="w-24 h-24 rounded-full bg-[#F2BE95] flex items-center justify-center shadow-sm">
-
             <span
               className="
                 text-[10px]
@@ -123,26 +132,20 @@ export default function CallDetails() {
               <br />
               FOR 4
             </span>
-
           </div>
 
           {/* Buttons */}
-      <div className="flex flex-row gap-3">
-          <ActionButton
-            label="Export Transcript"
-          />
-
-         <ActionButton
-           label="Flag for Review"
-           variant="primary"
-          />
-
+          <div className="flex flex-row gap-3">
+            {buttons.map((button, index) => (
+              <ActionButton
+                key={index}
+                label={button.label}
+                variant={button.variant}
+              />
+            ))}
           </div>
-          </div>
-
         </div>
-
       </div>
-    
+    </div>
   );
 }

@@ -8,7 +8,7 @@ export default function ReservationHeader() {
   return (
     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
       <div>
-        <h1 className="text-4xl md:text-5xl font-serif font-semibold text-[#2B2B2B]">
+        <h1 className="text-3xl md:text-4xl font-serif font-semibold text-[#2B2B2B]">
           Reservation Ledger
         </h1>
 

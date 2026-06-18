@@ -1,25 +1,46 @@
+"use client";
+
+import { useState } from "react";
+
 import {
   Globe,
   Bot,
   Users,
   MoreVertical,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 
+import Pagination from "./Pagination";
+import Table from "./Table";
 import { reservations } from "../constants/bookingConstants";
 
 export default function ReservationTable() {
+  const ITEMS_PER_PAGE = 5;
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(
+    reservations.length / ITEMS_PER_PAGE
+  );
+
+  const currentReservations = reservations.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
   const getStatusClasses = (color?: string) => {
     switch (color) {
       case "green":
         return "bg-[#E7F2E5] text-[#6D8D69]";
+
       case "orange":
         return "bg-[#F9E3D7] text-[#C17A52]";
+
       case "gray":
         return "bg-[#ECEAE6] text-[#6B6763]";
+
       case "red":
         return "bg-[#FBE7E7] text-[#CC7D7D]";
+
       default:
         return "bg-[#ECEAE6] text-[#6B6763]";
     }
@@ -28,7 +49,7 @@ export default function ReservationTable() {
   return (
     <>
       <div className="md:hidden space-y-4 p-4">
-        {reservations.map((item) => (
+        {currentReservations.map((item) => (
           <div
             key={item.id}
             className={`rounded-2xl border bg-white p-5 shadow-sm ${
@@ -137,7 +158,7 @@ export default function ReservationTable() {
           </thead>
 
           <tbody>
-            {reservations.map((item) => (
+            {currentReservations.map((item) => (
               <tr
                 key={item.id}
                 className={`border-t border-[#ECE8E1] hover:bg-[#FAFAF8] transition-colors ${
@@ -271,21 +292,21 @@ export default function ReservationTable() {
           </tbody>
         </table>
 
-        <div className="flex items-center justify-between border-t border-[#ECE8E1] px-4 py-4 lg:px-6 lg:py-5 text-[12px] text-[#7F7A74]">
-          <p>Showing 1 to 5 of 42 results</p>
-          <div className="flex items-center gap-3">
-            <ChevronLeft size={16} className="text-gray-400 cursor-pointer hover:text-gray-600" />
-            <button className="flex h-7 w-7 items-center justify-center rounded-lg bg-black text-white text-[12px]">
-              1
-            </button>
-            <button className="text-[12px] hover:text-black">2</button>
-            <button className="text-[12px] hover:text-black">3</button>
-            <button className="text-[12px]">...</button>
-            <button className="text-[12px] hover:text-black">9</button>
-            <ChevronRight size={16} className="text-gray-400 cursor-pointer hover:text-gray-600" />
-          </div>
-        </div>
+        <div className="border-t border-[#ECE8E1] px-4 py-4 lg:px-6 lg:py-5 text-[12px] text-[#7F7A74]">
+         <p>
+           Showing {(currentPage - 1) * ITEMS_PER_PAGE + 1} to{" "}
+          {Math.min(currentPage * ITEMS_PER_PAGE, reservations.length)} of{" "}
+          {reservations.length} results
+        </p>
+
+      <Pagination
+       currentPage={currentPage}
+       totalPages={totalPages}
+       onPageChange={setCurrentPage}
+      />
+       </div>
       </div>
+      
     </>
   );
-}
+} 

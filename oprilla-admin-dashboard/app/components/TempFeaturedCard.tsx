@@ -29,10 +29,9 @@ export default function FeaturedCard({
 
       {/* Right Content */}
       <div className="flex-1 p-5 flex flex-col justify-between">
-
         <div>
           <div className="flex justify-between items-start">
-            <h3 className="text-[20px] font-bold leading-7 text-[#1F1F1F]">
+            <h3 className="text-[20px] font-bold">
               {title}
             </h3>
 

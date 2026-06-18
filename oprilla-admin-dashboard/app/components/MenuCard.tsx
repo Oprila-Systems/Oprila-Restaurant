@@ -46,7 +46,6 @@ export default function MenuCard({
 
       {/* Content */}
       <div className="p-4 flex flex-col flex-1 justify-between">
-
         <div className="flex justify-between items-start gap-3">
           <h3 className="font-bold text-lg text-[#1F1F1F] leading-6">
             {title}

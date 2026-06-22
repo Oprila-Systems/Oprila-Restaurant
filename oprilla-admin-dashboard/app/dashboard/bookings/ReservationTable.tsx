@@ -13,19 +13,24 @@ export default function ReservationTable() {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = useMemo(
-    () => Math.ceil(reservations.length / ITEMS_PER_PAGE),
-    [ITEMS_PER_PAGE]
-  );
+ const totalPages = useMemo(
+  () => Math.ceil(reservations.length / ITEMS_PER_PAGE),
+  [ITEMS_PER_PAGE]
+);
 
-  const currentReservations = useMemo(
-    () =>
-      reservations.slice(
-        (currentPage - 1) * ITEMS_PER_PAGE,
-        currentPage * ITEMS_PER_PAGE
-      ),
-    [currentPage, ITEMS_PER_PAGE]
-  );
+const safeCurrentPage = Math.min(
+  Math.max(currentPage, 1),
+  totalPages
+);
+
+const currentReservations = useMemo(
+  () =>
+    reservations.slice(
+      (safeCurrentPage - 1) * ITEMS_PER_PAGE,
+      safeCurrentPage * ITEMS_PER_PAGE
+    ),
+  [safeCurrentPage, ITEMS_PER_PAGE]
+);
 
   return (
     <>
@@ -60,16 +65,16 @@ export default function ReservationTable() {
 
         <div className="border-t border-[#ECE8E1] px-4 py-4 text-[12px] text-[#7F7A74] lg:px-6 lg:py-5">
           <p>
-            Showing {(currentPage - 1) * ITEMS_PER_PAGE + 1} to{" "}
+            Showing {(safeCurrentPage - 1) * ITEMS_PER_PAGE + 1} to{" "}
             {Math.min(
-              currentPage * ITEMS_PER_PAGE,
-              reservations.length
+             safeCurrentPage * ITEMS_PER_PAGE,
+             reservations.length
             )}{" "}
             of {reservations.length} results
           </p>
 
           <Pagination
-            currentPage={currentPage}
+            currentPage={safeCurrentPage}
             totalPages={totalPages}
             onPageChange={setCurrentPage}
           />

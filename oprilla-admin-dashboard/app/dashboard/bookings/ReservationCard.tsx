@@ -1,10 +1,12 @@
 import { Globe, Bot, Users } from "lucide-react";
 import Avatar from "./Avatar";
 import StatusBadge from "./StatusBadge";
+import { Reservation } from "./types";
 
 interface Props {
-  item: any;
+  item: Reservation;
 }
+
 
 export default function ReservationCard({ item }: Props) {
   const isCancelled = item.status === "Cancelled";

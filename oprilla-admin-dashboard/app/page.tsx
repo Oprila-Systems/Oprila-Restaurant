@@ -4,7 +4,10 @@ import { useState } from "react";
 import { Menu } from "lucide-react";
 import Sidebar from "../components/Sidebar";
 import CallHistoryPage from "../components/CallHistoryPage";
-
+import {
+  RESTAURANT_NAME,
+  SUBTITLE,
+} from  "./dashboard/constants/dashboardConstants";
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -18,20 +21,27 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="flex-1 w-full">
-        
         {/* Mobile / Tablet Header */}
-        <div className="xl:hidden sticky top-0 z-30 bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-3 shadow-sm">
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className="p-2 rounded-md hover:bg-gray-100"
-          >
-            <Menu size={22} />
-          </button>
+<div className="xl:hidden sticky top-0 z-30 bg-white border-b border-[#E6E1DA] shadow-sm">
+  <div className="flex items-center gap-4 px-4 py-4">
+    <button
+      onClick={() => setSidebarOpen(true)}
+      className="w-10 h-10 flex items-center justify-center rounded-lg bg-[#2C2C2C] text-white shadow-sm"
+    >
+      <Menu size={20} />
+    </button>
 
-          <h1 className="text-lg font-semibold text-[#111827]">
-            Call History
-          </h1>
-        </div>
+    <div>
+      <h1 className="text-lg font-serif font-semibold text-[#2C2C2C] leading-none">
+        Maître D' Pro
+      </h1>
+
+      <p className="text-[10px] tracking-[2px] uppercase text-gray-400 mt-1">
+        Premium Admin
+      </p>
+    </div>
+  </div>
+</div>
 
         {/* Page Content */}
         <CallHistoryPage />

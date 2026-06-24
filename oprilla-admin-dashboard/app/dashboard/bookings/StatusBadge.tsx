@@ -8,12 +8,12 @@ export default function StatusBadge({
   statusColor,
 }: StatusBadgeProps) {
   const statusClasses = {
-   green: "bg-status-greenBg text-status-greenText",
-   orange: "bg-status-orangeBg text-status-orangeText",
-   gray: "bg-status-grayBg text-status-grayText",
-   red: "bg-status-redBg text-status-redText",
-   default: "bg-status-grayBg text-status-grayText",
-  };
+    green: "bg-status-greenBg text-status-greenText",
+    orange: "bg-status-orangeBg text-status-orangeText",
+    gray: "bg-status-grayBg text-status-grayText",
+    red: "bg-status-redBg text-status-redText",
+    default: "bg-status-grayBg text-status-grayText",
+  } as const;
 
   return (
     <span

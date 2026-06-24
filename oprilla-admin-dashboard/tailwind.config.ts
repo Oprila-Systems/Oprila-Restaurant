@@ -14,6 +14,17 @@ const config: Config = {
           redBg: "#FBE7E7",
           redText: "#CC7D7D",
         },
+
+        card: {
+          border: "#ECE8E1",
+          highlight: "#B76F49",
+          disabled: "#B8B2AC",
+          title: "#2B2B2B",
+          subtitle: "#8A8A8A",
+          special: "#B56E47",
+          tableBg: "#F2F0EC",
+          button: "#2B2B2B",
+        },
       },
     },
   },

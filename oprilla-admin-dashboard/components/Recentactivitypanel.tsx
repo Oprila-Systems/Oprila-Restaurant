@@ -1,11 +1,12 @@
 export default function RecentActivityPanel() {
   return (
-    <div className="w-[280px] bg-white border-r border-[#E6E1DA]">
+    <div className="w-full lg:w-[280px] xl:w-[320px] bg-white border-b lg:border-b-0 lg:border-r border-[#E6E1DA]">
 
-      <div className="p-6 border-b border-[#E7E1D9]">
-      <h2 className="text-3xl font-extrabold text-[#111827]">
-        Recent Activity
-      </h2>
+      {/* Header */}
+      <div className="p-4 md:p-6 border-b border-[#E7E1D9]">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-[#111827]">
+          Recent Activity
+        </h2>
 
         <p className="text-xs text-gray-500 mt-1">
           AI Concierge logs for today
@@ -17,8 +18,7 @@ export default function RecentActivityPanel() {
 
         {/* Active Item */}
         <div className="bg-[#FBF3EC] border border-[#F2E1D2] rounded-xl p-4 cursor-pointer">
-
-          <p className="text-lg font-extrabold text-[#111827]">
+          <p className="text-lg font-extrabold text-[#111827] break-all">
             +1 (555) 012-4492
           </p>
 
@@ -29,13 +29,11 @@ export default function RecentActivityPanel() {
           <p className="text-sm text-[#6B7280] mt-2">
             Table booked for 4 at 8:00 PM tonight...
           </p>
-
         </div>
 
         {/* Item 2 */}
         <div className="p-4 rounded-xl hover:bg-[#F9F7F4] cursor-pointer transition">
-
-          <p className="text-lg font-extrabold text-[#111827]">
+          <p className="text-lg font-extrabold text-[#111827] break-all">
             +1 (555) 089-1123
           </p>
 
@@ -46,13 +44,11 @@ export default function RecentActivityPanel() {
           <p className="text-sm text-[#6B7280] mt-2">
             Inquiry about gluten-free pasta options...
           </p>
-
         </div>
 
         {/* Item 3 */}
         <div className="p-4 rounded-xl hover:bg-[#F9F7F4] cursor-pointer transition">
-
-          <p className="text-lg font-extrabold text-[#111827]">
+          <p className="text-lg font-extrabold text-[#111827] break-all">
             +1 (555) 044-8832
           </p>
 
@@ -63,13 +59,11 @@ export default function RecentActivityPanel() {
           <p className="text-sm text-[#6B7280] mt-2">
             Confirmed existing booking...
           </p>
-
         </div>
 
         {/* Item 4 */}
         <div className="p-4 rounded-xl hover:bg-[#F9F7F4] cursor-pointer transition">
-
-          <p className="text-lg font-extrabold text-[#111827]">
+          <p className="text-lg font-extrabold text-[#111827] break-all">
             +1 (555) 077-2210
           </p>
 
@@ -80,7 +74,6 @@ export default function RecentActivityPanel() {
           <p className="text-sm text-[#6B7280] mt-2">
             Disconnected before finishing order...
           </p>
-
         </div>
 
       </div>

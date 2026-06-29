@@ -1,4 +1,4 @@
-import Header from "./Header";
+
 import StatCard from "./StatCard";
 import WeeklyRevenueChart from "./WeeklyRevenueChart";
 import ActivityPanel from "./ActivityPanel";
@@ -9,7 +9,7 @@ export default function Dashboard() {
     <main className="flex-1 bg-[#F8F7F4] px-8 py-8 overflow-y-auto">
       <div className="w-full">
 
-        <Header />
+      
         <div className="mb-8">
           <h1 className="text-[36px] font-serif font-semibold text-[#2B2B2B]">
             Service Overview

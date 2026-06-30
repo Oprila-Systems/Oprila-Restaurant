@@ -2,10 +2,14 @@ import { useEffect } from "react";
 
 export function useBodyScrollLock(lock: boolean) {
   useEffect(() => {
-    document.body.style.overflow = lock ? "hidden" : "auto";
+    console.log("Sidebar open:", lock);
+
+    document.body.style.overflow = lock ? "hidden" : "";
+    document.documentElement.style.overflow = lock ? "hidden" : "";
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
   }, [lock]);
 }

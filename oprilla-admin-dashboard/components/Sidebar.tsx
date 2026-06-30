@@ -15,8 +15,7 @@ import {
 
 export default function Sidebar() {
   return (
-    <aside className="w-full lg:w-[280px] bg-[#F7F6F3] border-r border-gray-200 flex flex-col justify-between px-9 py-8">
-
+    <aside className="w-full lg:w-[280px] h-screen bg-[#F7F6F3] border-r border-gray-200 flex flex-col justify-between px-9 py-8 overflow-y-auto">
       <div>
 
         <div className="mb-16">

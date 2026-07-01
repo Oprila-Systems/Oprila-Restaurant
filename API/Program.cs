@@ -205,17 +205,18 @@ try
 
         c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
-            Description = "JWT Authorization – Enter: **Bearer {token}**",
+            Description = "JWT Authorization - Enter: **Bearer {token}**",
             Name = "Authorization",
             In = ParameterLocation.Header,
-            Type = SecuritySchemeType.ApiKey,
-            Scheme = "Bearer"
+            Type = SecuritySchemeType.Http,
+            Scheme = "bearer",
+            BearerFormat = "JWT"
         });
 
-        c.AddSecurityRequirement(_ => new OpenApiSecurityRequirement
+        c.AddSecurityRequirement(document => new OpenApiSecurityRequirement
         {
             {
-                new OpenApiSecuritySchemeReference("Bearer"), new List<string>()
+                new OpenApiSecuritySchemeReference("Bearer", document), new List<string>()
             }
         });
 

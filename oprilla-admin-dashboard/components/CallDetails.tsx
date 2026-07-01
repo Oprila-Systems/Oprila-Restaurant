@@ -51,47 +51,52 @@ export default function CallDetails() {
   ];
 
   return (
-    <div className="bg-white rounded-[28px] border border-[#E7E1D9] p-8 shadow-sm">
+    <div className="bg-white rounded-2xl lg:rounded-[28px] border border-[#E7E1D9] p-4 sm:p-6 lg:p-8 shadow-sm">
       {/* Header */}
-      <div className="flex justify-end items-center gap-4 mb-8">
-        <FiBell
-          size={18}
-          className="text-[#6B7280] cursor-pointer"
-        />
+      <div className="flex items-center justify-between gap-3 sm:gap-4 mb-6 lg:mb-8">
+        <div className="flex items-center gap-3 sm:gap-4 ml-auto">
+          <FiBell
+            size={18}
+            className="text-[#6B7280] cursor-pointer"
+          />
 
-        <FiMoon
-          size={18}
-          className="text-[#6B7280] cursor-pointer"
-        />
+          <FiMoon
+            size={18}
+            className="text-[#6B7280] cursor-pointer"
+          />
 
-        <div className="text-right">
-          <p className="text-sm font-semibold text-[#111827]">
-            Julian Rossi
-          </p>
+          <div className="text-right">
+            <p className="text-xs sm:text-sm font-semibold text-[#111827]">
+              Julian Rossi
+            </p>
 
-          <p className="text-[11px] uppercase tracking-wide text-[#9CA3AF]">
-            Floor Manager
-          </p>
-        </div>
+            <p className="text-[10px] sm:text-[11px] uppercase tracking-wide text-[#9CA3AF]">
+              Floor Manager
+            </p>
+          </div>
 
-        <div className="w-10 h-10 rounded-full bg-[#A85B2B] text-white flex items-center justify-center font-semibold">
-          J
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#A85B2B] text-white flex items-center justify-center font-semibold">
+            J
+          </div>
         </div>
       </div>
 
-      {/* Main Section */}
-      <div className="flex flex-col xl:flex-row items-center gap-14">
-        {/* LEFT */}
-        <div className="flex-1 max-w-[700px]">
+      {/* Main */}
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-8 lg:gap-12">
+        {/* Left */}
+        <div className="flex-1 min-w-0">
           <h1
             className="
-              text-[48px]
-              md:text-[64px]
-              lg:text-[78px]
+              text-4xl
+              sm:text-5xl
+              md:text-6xl
+              lg:text-7xl
+              xl:text-[78px]
               font-black
               leading-[0.9]
               tracking-tight
               text-[#081228]
+              break-words
             "
           >
             +1 (555)
@@ -99,8 +104,8 @@ export default function CallDetails() {
             012-4492
           </h1>
 
-          {/* Meta Data */}
-          <div className="flex flex-wrap items-center gap-8 mt-8">
+          {/* Info */}
+          <div className="flex flex-wrap items-center gap-4 md:gap-6 lg:gap-8 mt-6 lg:mt-8">
             {infoItems.map((item, index) => (
               <InfoItem
                 key={index}
@@ -111,13 +116,14 @@ export default function CallDetails() {
           </div>
         </div>
 
-        {/* RIGHT */}
-        <div className="flex flex-col items-center gap-6 min-w-[260px]">
+        {/* Right */}
+        <div className="w-full xl:w-auto flex flex-col items-center xl:items-end gap-6">
           {/* Badge */}
-          <div className="w-24 h-24 rounded-full bg-[#F2BE95] flex items-center justify-center shadow-sm">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#F2BE95] flex items-center justify-center shadow-sm">
             <span
               className="
-                text-[10px]
+                text-[9px]
+                sm:text-[10px]
                 font-extrabold
                 text-center
                 uppercase
@@ -135,7 +141,7 @@ export default function CallDetails() {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 w-full xl:w-auto">
             {buttons.map((button, index) => (
               <ActionButton
                 key={index}

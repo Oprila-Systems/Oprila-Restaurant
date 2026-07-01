@@ -12,28 +12,51 @@ export default function ChatBubble({
   return (
     <div className={`flex ${isAI ? "justify-start" : "justify-end"}`}>
       <div
-        className={`max-w-[380px] rounded-xl px-4 py-3 ${
-          isAI
-            ? "bg-[#F3F0EC]"
-            : "bg-[#A85B2B]"
-        }`}
+        className={`
+          w-full
+          sm:w-auto
+          max-w-full
+          sm:max-w-[380px]
+          lg:max-w-[450px]
+          rounded-xl
+          px-4
+          py-3
+          break-words
+          ${
+            isAI
+              ? "bg-[#F3F0EC]"
+              : "bg-[#A85B2B]"
+          }
+        `}
       >
         <p
-          className={`text-[11px] font-bold uppercase mb-2 ${
-            isAI
-              ? "text-[#1F2937]"
-              : "text-white"
-          }`}
+          className={`
+            text-[11px]
+            font-bold
+            uppercase
+            mb-2
+            ${
+              isAI
+                ? "text-[#1F2937]"
+                : "text-white"
+            }
+          `}
         >
           {sender}
         </p>
 
         <p
-          className={`text-sm leading-6 ${
-            isAI
-              ? "text-[#374151]"
-              : "text-white"
-          }`}
+          className={`
+            text-sm
+            md:text-[15px]
+            leading-6
+            break-words
+            ${
+              isAI
+                ? "text-[#374151]"
+                : "text-white"
+            }
+          `}
         >
           {message}
         </p>

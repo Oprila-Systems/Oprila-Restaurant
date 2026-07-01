@@ -24,12 +24,12 @@ const conversations = [
 
 export default function ConversationSection() {
   return (
-    <div className="bg-white border border-[#E6E1DA] rounded-xl p-3">
-      <h2 className="text-[20px] font-bold text-[#1F2937] mb-3">
+    <div className="w-full bg-white border border-[#E6E1DA] rounded-xl p-4 md:p-6 overflow-hidden">
+      <h2 className="text-lg md:text-xl font-bold text-[#1F2937] mb-4">
         Conversation Transcript
       </h2>
 
-      <div className="space-y-2">
+      <div className="space-y-3">
         {conversations.map((conversation, index) => (
           <ChatBubble
             key={index}

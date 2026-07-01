@@ -1,10 +1,41 @@
-export default function RecentActivityPanel() {
-  return (
-    <div className="w-full lg:w-[280px] xl:w-[320px] bg-white border-b lg:border-b-0 lg:border-r border-[#E6E1DA]">
+"use client";
 
+import { useEffect, useState } from "react";
+import { getAppointments, Appointment } from "../Services/dashboard.service";
+
+export default function RecentActivityPanel() {
+  const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadAppointments = async () => {
+      try {
+        const data = await getAppointments();
+        console.log("Appointments:", data);
+        setAppointments(data);
+      } catch (error) {
+        console.error("Error loading appointments:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadAppointments();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="w-[280px] bg-white border-r border-[#E6E1DA] p-6">
+        Loading...
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-[280px] bg-white border-r border-[#E6E1DA]">
       {/* Header */}
-      <div className="p-4 md:p-6 border-b border-[#E7E1D9]">
-        <h2 className="text-2xl md:text-3xl font-extrabold text-[#111827]">
+      <div className="p-6 border-b border-[#E7E1D9]">
+        <h2 className="text-3xl font-extrabold text-[#111827]">
           Recent Activity
         </h2>
 
@@ -13,69 +44,47 @@ export default function RecentActivityPanel() {
         </p>
       </div>
 
-      {/* Activity List */}
-      <div className="p-4 space-y-4">
+      <div className="p-4">
+        <h3 className="text-sm font-bold mb-3">
+          Appointments
+        </h3>
 
-        {/* Active Item */}
-        <div className="bg-[#FBF3EC] border border-[#F2E1D2] rounded-xl p-4 cursor-pointer">
-          <p className="text-lg font-extrabold text-[#111827] break-all">
-            +1 (555) 012-4492
+        {appointments.length === 0 ? (
+          <p className="text-gray-500 text-sm">
+            No appointments found.
           </p>
+        ) : (
+          appointments.map((appointment) => (
+            <div
+              key={appointment.id}
+              className="bg-[#FBF3EC] border border-[#F2E1D2] rounded-xl p-3 mb-3"
+            >
+              <p className="font-bold text-[#111827]">
+                {appointment.customerPhone}
+              </p>
 
-          <p className="text-xs font-semibold text-green-600 mt-1">
-            POSITIVE • 4m 32s
-          </p>
+              <p className="text-xs uppercase text-green-600 mt-1">
+                {appointment.status}
+              </p>
 
-          <p className="text-sm text-[#6B7280] mt-2">
-            Table booked for 4 at 8:00 PM tonight...
-          </p>
-        </div>
+              <p className="text-xs text-gray-500 mt-2">
+                {appointment.specialRequests
+                  ? appointment.specialRequests
+                  : `${appointment.customerName} booked ${appointment.guestCount} guests`}
+              </p>
+            </div>
+          ))
+        )}
 
-        {/* Item 2 */}
-        <div className="p-4 rounded-xl hover:bg-[#F9F7F4] cursor-pointer transition">
-          <p className="text-lg font-extrabold text-[#111827] break-all">
-            +1 (555) 089-1123
-          </p>
+        <div className="mt-8">
+          <h3 className="text-sm font-bold mb-3">
+            Recent Activity
+          </h3>
 
-          <p className="text-xs text-[#6B7280] mt-1">
-            NEUTRAL • 1m 15s
-          </p>
-
-          <p className="text-sm text-[#6B7280] mt-2">
-            Inquiry about gluten-free pasta options...
-          </p>
-        </div>
-
-        {/* Item 3 */}
-        <div className="p-4 rounded-xl hover:bg-[#F9F7F4] cursor-pointer transition">
-          <p className="text-lg font-extrabold text-[#111827] break-all">
-            +1 (555) 044-8832
-          </p>
-
-          <p className="text-xs text-green-600 mt-1">
-            POSITIVE • 2m 45s
-          </p>
-
-          <p className="text-sm text-[#6B7280] mt-2">
-            Confirmed existing booking...
+          <p className="text-sm text-gray-500">
+            Recent Activity API is not available yet.
           </p>
         </div>
-
-        {/* Item 4 */}
-        <div className="p-4 rounded-xl hover:bg-[#F9F7F4] cursor-pointer transition">
-          <p className="text-lg font-extrabold text-[#111827] break-all">
-            +1 (555) 077-2210
-          </p>
-
-          <p className="text-xs text-[#6B7280] mt-1">
-            MISSED • 55s
-          </p>
-
-          <p className="text-sm text-[#6B7280] mt-2">
-            Disconnected before finishing order...
-          </p>
-        </div>
-
       </div>
     </div>
   );

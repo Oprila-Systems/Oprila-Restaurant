@@ -1,14 +1,14 @@
-//import Sidebar from "../components/Sidebar";
-import RecentActivityPanel from "./Recentactivitypanel";
 import CallDetails from "./CallDetails";
 import ConversationSection from "./Convsection";
+import RecentActivityPanel from "./Recentactivitypanel";
+
 
 export default function CallHistoryPage() {
   return (
     <div className="flex min-h-screen flex-col lg:flex-row bg-[#F7F4EF]">
       {/* Recent Activity */}
       <div className="w-full lg:w-[340px] xl:w-[380px]">
-        <RecentActivityPanel />
+       <RecentActivityPanel/>
       </div>
 
       {/* Main Content */}

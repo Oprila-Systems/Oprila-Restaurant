@@ -12,14 +12,14 @@ export default function FeaturedCard({
   price,
 }: FeaturedCardProps) {
   return (
-    <div className="col-span-2 bg-white border border-gray-200 rounded-xl overflow-hidden flex h-[260px]">
+    <div className="col-span-1 xl:col-span-2 bg-white border border-gray-200 rounded-xl overflow-hidden flex flex-col md:flex-row min-h-[260px]">
 
       {/* Left Image */}
-      <div className="w-[45%] relative">
+      <div className="w-full md:w-[45%] relative">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover"
+          className="w-full h-[220px] md:h-full object-cover"
         />
 
         <span className="absolute top-3 left-3 bg-[#7C3AED] text-white text-[10px] px-2 py-1 rounded">
@@ -30,12 +30,12 @@ export default function FeaturedCard({
       {/* Right Content */}
       <div className="flex-1 p-5 flex flex-col justify-between">
         <div>
-          <div className="flex justify-between items-start">
-            <h3 className="text-[20px] font-bold">
+          <div className="flex justify-between items-start gap-4">
+            <h3 className="text-xl font-bold text-[#1F1F1F]">
               {title}
             </h3>
 
-            <div className="flex flex-col items-end">
+            <div className="flex flex-col items-end shrink-0">
               <span className="text-[10px] text-gray-400 uppercase">
                 ACTIVE
               </span>
@@ -47,7 +47,7 @@ export default function FeaturedCard({
           </div>
 
           {/* Price */}
-          <p className="mt-2 text-[#C2410C] font-bold text-lg">
+          <p className="mt-2 text-[#C2410C] font-bold text-xl">
             {price}
           </p>
 
@@ -58,17 +58,17 @@ export default function FeaturedCard({
         </div>
 
         {/* Bottom Buttons */}
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center mt-6">
           <button className="bg-black text-white px-5 py-2 rounded-lg text-sm">
             Edit Details
           </button>
 
-          <button className="w-8 h-8 border rounded-md text-gray-500">
+          <button className="w-8 h-8 border border-gray-300 rounded-md text-gray-500">
             ⋯
           </button>
         </div>
-
       </div>
+
     </div>
   );
 }

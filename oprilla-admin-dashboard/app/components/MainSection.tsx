@@ -45,7 +45,7 @@ export default function MainsSection() {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
         <FeaturedCard
           image="https://images.unsplash.com/photo-1544025162-d76694265947?w=800"
           title="Dry-Aged Prime Ribeye"
